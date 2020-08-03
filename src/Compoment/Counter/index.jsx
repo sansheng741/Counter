@@ -46,6 +46,9 @@ class Counter extends React.Component {
         return null;
       }
 
+      componentWillUnmount(){
+          
+      }
 
 
 }
