@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* <CounterGroup /> */}
-        <Counter />
+        <CounterGroup />
+        {/* <Counter /> */}
       </header>
     </div>
   );

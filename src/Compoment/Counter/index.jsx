@@ -13,20 +13,19 @@ class Counter extends React.Component {
 
     onDecrease = () => {
         //获取action
-        const action = decreaseAction();
+        const action = decreaseAction(this.props.counterId);
         //发送action
         store.dispatch(action);
     }
 
     onIncrease = () => {
         //获取action
-        const action = increaseAction();
+        const action = increaseAction(this.props.counterId);
         //发送action
         store.dispatch(action);
     }
 
     componentDidMount() {
-
         store.subscribe(() => {
             this.setState({})
             console.log('subscribe', store.getState())
@@ -38,7 +37,7 @@ class Counter extends React.Component {
         return (
             <div>
                 <button onClick={this.onDecrease}>-</button>
-                <span>{store.getState().value}</span>
+                <span>{store.getState().value[this.props.counterId]}</span>
                 <button onClick={this.onIncrease}>+</button>
             </div>)
     }
