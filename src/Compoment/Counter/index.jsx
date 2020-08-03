@@ -5,7 +5,7 @@ class Counter extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { number: 0 , inputSize : 0}
+        this.state = { number: 0, inputSize: 0 }
     }
 
     render() {
@@ -36,19 +36,19 @@ class Counter extends React.Component {
      * @param {*} nextProps 父类的数据
      * @param {*} prevState 本类的数据
      */
-    static getDerivedStateFromProps(nextProps, prevState) {
-        if (nextProps.inputSize !== prevState.inputSize) {
-          return {
-            number: 0,
-            inputSize : nextProps.inputSize
-          };
-        }
-        return null;
-      }
+    // static getDerivedStateFromProps(nextProps, prevState) {
+    //     if (nextProps.inputSize !== prevState.inputSize) {
+    //       return {
+    //         number: 0,
+    //         inputSize : nextProps.inputSize
+    //       };
+    //     }
+    //     return null;
+    //   }
 
-      componentWillUnmount(){
-          
-      }
+    componentWillUnmount() {
+        this.props.countTotalValue(this.state.number);
+    }
 
 
 }

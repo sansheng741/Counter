@@ -11,14 +11,12 @@ class CounterGroup extends React.Component {
 
     handleResize = (event) => {
         this.setState({
-            size: event.target.value ? parseInt(event.target.value) : 0,
-            totalValue : 0
+            size: event.target.value ? parseInt(event.target.value) : 0
         })
 
     }
 
     handleIncreaseValue = () =>{
-
         this.setState((prevState) => ({
             totalValue: prevState.totalValue + 1
         }))
@@ -27,6 +25,12 @@ class CounterGroup extends React.Component {
     handleDecreaseValue = () =>{
         this.setState((prevState) =>({
             totalValue : prevState.totalValue - 1
+        }))
+    }
+
+    handleTotalValue = (value) =>{
+        this.setState((prevState) =>({
+            totalValue : prevState.totalValue - value
         }))
     }
 
@@ -47,7 +51,11 @@ class CounterGroup extends React.Component {
                         totalValue : {this.state.totalValue}
                     </label>
                     {
-                        initArray.map(key => <Counter key={key} onIncrease={this.handleIncreaseValue} onDecrease={this.handleDecreaseValue} inputSize={this.state.size}/>)
+                        initArray.map(key => <Counter key={key} 
+                            onIncrease={this.handleIncreaseValue} 
+                            onDecrease={this.handleDecreaseValue} 
+                            inputSize={this.state.size} 
+                            countTotalValue={this.handleTotalValue}/>)
                     }
                 </div>
             </div>
